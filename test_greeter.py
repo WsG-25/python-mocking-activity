@@ -54,4 +54,10 @@ def test_greet_evening_unknown_user(mocker):
 # What does the greeting say? Is that the right behaviour?
 def test_morning_boundary_hour_five(mocker):
     greeter = Greeter()
-    pass
+
+    mocker.patch.object(greeter, "get_current_hour", return_value=5)
+    mocker.patch.object(greeter, "get_username", return_value="Alice")
+
+    result = greeter.greet(1)
+
+    assert result == "Good morning, Alice!"
