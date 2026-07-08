@@ -16,32 +16,30 @@ from greeter import Greeter
 # when the hour is 9 and the user_id is 1 (Alice).
 def test_greet_morning(mocker):
     greeter = Greeter()
-    mocker.patch.object(greeter, "get-current_hour", return_value=9)
+    mocker.patch.object(greeter, "get_current_hour", return_value=9)
     mocker.patch.object(greeter, "get_username", return_value="Alice")
 
     result = greeter.greet(1)
 
-    assert result == "Good Morning, Alice"
+    assert result == "Good morning, Alice!"
 
 # Test that greet() returns "Good afternoon, Bob!"
 # when the hour is 14 and the user_id is 2 (Bob).
 def test_greet_afternoon(mocker):
     greeter = Greeter()
-    mocker.patch.object(greeter, "get_current_hour", return_value=13)
+    mocker.patch.object(greeter, "get_current_hour", return_value=14)
     mocker.patch.object(greeter, "get_username", return_value="Bob")
 
     result = greeter.greet(2)
 
     assert result == "Good afternoon, Bob!"
 
-    pass
-
 
 # Test that greet() returns "Good evening, Guest!"
 # when the hour is 21 and the user_id is 99 (unknown user).
 def test_greet_evening_unknown_user(mocker):
     greeter = Greeter()
-    pass
+    
 
 
 # Stretch goal
