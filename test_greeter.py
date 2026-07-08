@@ -1,3 +1,13 @@
+# Example test
+def test_example(mocker):
+    greeter = Greeter()
+    mocker.patch.object(greeter, "some_method", return_value="some value")
+
+    result = greeter.some_method()
+
+    assert result == "some value"
+
+
 from greeter import Greeter
 
 
