@@ -27,6 +27,12 @@ def test_greet_morning(mocker):
 # when the hour is 14 and the user_id is 2 (Bob).
 def test_greet_afternoon(mocker):
     greeter = Greeter()
+    mocker.patch.object(greeter, "get_current_hour", return_value=13)
+    mocker.patch.object(greeter, "get_username", return_value="Bob")
+
+    result = greeter.greet(2)
+
+    assert result == "Good afternoon, Bob!"
 
     pass
 
