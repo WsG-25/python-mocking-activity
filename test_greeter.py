@@ -26,12 +26,15 @@ def test_greet_morning(mocker):
 # Test that greet() returns "Good afternoon, Bob!"
 # when the hour is 14 and the user_id is 2 (Bob).
 def test_greet_afternoon(mocker):
+    greeter = Greeter()
+
     pass
 
 
 # Test that greet() returns "Good evening, Guest!"
 # when the hour is 21 and the user_id is 99 (unknown user).
 def test_greet_evening_unknown_user(mocker):
+    greeter = Greeter()
     pass
 
 
@@ -39,3 +42,6 @@ def test_greet_evening_unknown_user(mocker):
 # Add a test that checks greet() still works correctly at
 # exactly hour=5 (the boundary between "evening" and "morning").
 # What does the greeting say? Is that the right behaviour?
+def test_morning_boundary_hour_five(mocker):
+    greeter = Greeter()
+    pass
