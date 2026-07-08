@@ -1,3 +1,4 @@
+'''
 # Example test
 def test_example(mocker):
     greeter = Greeter()
@@ -7,15 +8,20 @@ def test_example(mocker):
 
     assert result == "some value"
 
-
+'''
 from greeter import Greeter
 
 
 # Test that greet() returns "Good morning, Alice!"
 # when the hour is 9 and the user_id is 1 (Alice).
 def test_greet_morning(mocker):
-    pass
+    greeter = Greeter()
+    mocker.patch.object(greeter, "get-current_hour", return_value=9)
+    mocker.patch.object(greeter, "get_username", return_value="Alice")
 
+    result = greeter.greet(1)
+
+    assert result == "Good Morning, Alice"
 
 # Test that greet() returns "Good afternoon, Bob!"
 # when the hour is 14 and the user_id is 2 (Bob).
